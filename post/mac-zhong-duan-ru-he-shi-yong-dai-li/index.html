@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Mac终端如何使用代理 | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1597630666723">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="在Mac上安装使用ShadowsocksX-NG-R8
+
+
+点击下载ShadowsocksX-NG-R8.dmg
+
+
+点击应用图标 ---&gt; HTTP代理设置 --&gt; 即可查看到监听的IP和端口号（一般为127.0.0.1:10..." />
+    <meta name="keywords" content="Mac" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1597630666723" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Mac终端如何使用代理</h2>
+            <div class="post-date">2020-08-17</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="在mac上安装使用shadowsocksx-ng-r8">在Mac上安装使用ShadowsocksX-NG-R8</h3>
+<ol>
+<li>
+<p><a href="https://HealerLu.github.io/post-images/ShadowsocksX-NG-R8.dmg">点击下载ShadowsocksX-NG-R8.dmg</a></p>
+</li>
+<li>
+<p>点击应用图标 ---&gt; HTTP代理设置 --&gt; 即可查看到监听的IP和端口号（一般为127.0.0.1:1087）</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/1597629976115.png" alt="HTTP代理设置" loading="lazy"></figure>
+<h3 id="使用iterm2终端设置代理">使用iterm2终端设置代理</h3>
+<ol>
+<li>
+<p>打开终端输入<code>vim ~/.zshrc</code>进入vim</p>
+</li>
+<li>
+<p>输入 `i进入编辑模式</p>
+</li>
+<li>
+<p>输入以下命令设置终端代理</p>
+</li>
+</ol>
+<p><code>alias goproxy='export http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087'</code><br>
+<code>alias disproxy='unset http_proxy https_proxy'</code></p>
+<p><em>注：alias为设置别名</em></p>
+<ol start="4">
+<li>
+<p>按下<code>esc</code>退出编辑模式，再按下<code>:wq</code>退出vim并保存</p>
+</li>
+<li>
+<p>使用<code>source ~/.zshrc</code>命令更新刚才编辑的内容</p>
+</li>
+<li>
+<p>直接在命令行运行<code>goproxy</code>即可启动终端代理</p>
+</li>
+<li>
+<p>运行<code>crul cip.cc</code>，输出的内容为代理服务器的IP时，即为设置成功，如下所示</p>
+<p>`IP	: 128.22.126.241<br>
+地址	: 日本  大阪府  大阪<br>
+运营商	: k-opti.com</p>
+<p>数据二	: 日本 | 大阪K Opti通讯</p>
+<p>数据三	:</p>
+<p>URL	: http://www.cip.cc/128.22.126.241`</p>
+</li>
+<li>
+<p>如果想关闭代理，运行<code>disproxy</code>即可</p>
+</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/7RkctZoYj/" class="tag">
+                    Mac
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
