@@ -1,22 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://HealerLu.github.io</id>
-    <title>Healer</title>
-    <updated>2020-08-20T07:34:32.128Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://HealerLu.github.io"/>
-    <link rel="self" href="https://HealerLu.github.io/atom.xml"/>
-    <subtitle>&lt;strong&gt; 岁月不堪数，故人不如初&lt;/strong&gt;</subtitle>
-    <logo>https://HealerLu.github.io/images/avatar.png</logo>
-    <icon>https://HealerLu.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Healer</rights>
-    <entry>
-        <title type="html"><![CDATA[算术运算符和分支语句]]></title>
-        <id>https://HealerLu.github.io/post/suan-zhu-yun-suan-fu-he-fen-zhi-yu-ju/</id>
-        <link href="https://HealerLu.github.io/post/suan-zhu-yun-suan-fu-he-fen-zhi-yu-ju/">
-        </link>
-        <updated>2020-08-20T07:32:51.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="算术运算符">算术运算符</h3>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>算术运算符和分支语句 | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1597908826461">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="算术运算符
+运算符和表达式
+
+
+运算符
+
+对常量或者变量进行操作的符号
+
+
+
+表达式
+
+用运算符把常量或者变量连接起来符合Java语法的式子。不同运算符链接的表达式体现的是不同类型的表达式。
+
+
+
+算术运算符
+
+
+
+符号
+作用
+
+
+
+
++
+..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1597908826461" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">算术运算符和分支语句</h2>
+            <div class="post-date">2020-08-20</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="算术运算符">算术运算符</h3>
 <h4 id="运算符和表达式">运算符和表达式</h4>
 <ol>
 <li>
@@ -377,326 +476,59 @@
 </ul>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java SE 基础]]></title>
-        <id>https://HealerLu.github.io/post/java-se-ji-chu-jdk-de-an-zhuang/</id>
-        <link href="https://HealerLu.github.io/post/java-se-ji-chu-jdk-de-an-zhuang/">
-        </link>
-        <updated>2020-08-19T05:15:13.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="jre-和-jdk">JRE 和 JDK</h4>
-<ul>
-<li>
-<p><strong>JRE(Java Runtime Environment)</strong> 是Java程序的运行时环境，包含<strong>JVM</strong>和运行时所需要的核心类库</p>
-<blockquote>
-<p>我们想要运行一个已有的Java程序，那么只需要安装<strong>JRE</strong>即可</p>
-</blockquote>
-</li>
-<li>
-<p><strong>JDK（Java Development Kit ）<strong>是Java程序开发工具包，包含</strong>JVM</strong>和开发人员使用的工具</p>
-<blockquote>
-<p>其中的开发工具：编译工具（<strong>javac.exe</strong>）和运行工具（<strong>java.exe</strong>）</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="jdk-jre和jvm的关系">JDK、JRE和JVM的关系</h4>
-<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200819105356024.png" alt="JDK、JRE和JVM的关系" loading="lazy"></figure>
-<h4 id="jdk的安装目录说明">JDK的安装目录说明</h4>
-<figure data-type="image" tabindex="2"><img src="https://HealerLu.github.io/post-images/image-20200819110627110.png" alt="JDK的安装目录说明" loading="lazy"></figure>
-<h4 id="关键字">关键字</h4>
-<ol>
-<li>概述
-<ul>
-<li>关键字就是被Java语言赋予了特定含义的单词</li>
-</ul>
-</li>
-<li>特点
-<ul>
-<li>关键字的字母全部小写</li>
-<li>常用的代码编辑器，针对关键字有特殊的颜色标记，非常直观</li>
-</ul>
-</li>
-</ol>
-<h4 id="常量">常量</h4>
-<ol>
-<li>
-<p>概述</p>
-<ul>
-<li>在程序运行过程中，其值不可以发生改变的量</li>
-</ul>
-</li>
-<li>
-<p>分类</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">常量类型</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">字符串常量</td>
-<td style="text-align:center">用双引号括起来的内容</td>
-<td style="text-align:center">&quot;Hello word&quot;</td>
-</tr>
-<tr>
-<td style="text-align:center">整数常量</td>
-<td style="text-align:center">不带小数的数字</td>
-<td style="text-align:center">100，-88</td>
-</tr>
-<tr>
-<td style="text-align:center">小数常量</td>
-<td style="text-align:center">带小数的数字</td>
-<td style="text-align:center">13.14，-2.22</td>
-</tr>
-<tr>
-<td style="text-align:center">字符常量</td>
-<td style="text-align:center">用单引号括起来的内容</td>
-<td style="text-align:center">'A'，'0'</td>
-</tr>
-<tr>
-<td style="text-align:center">布尔常量</td>
-<td style="text-align:center">布尔值，表示真假</td>
-<td style="text-align:center">只有两个值：true，false</td>
-</tr>
-<tr>
-<td style="text-align:center">空常量</td>
-<td style="text-align:center">一个特殊的值，空值</td>
-<td style="text-align:center">null</td>
-</tr>
-</tbody>
-</table>
-<p>`public class HelloWord {</p>
-<pre><code>public static void main (String[] args) {
- // 字符串常量
-     System.out.println(&quot;hello word&quot;);
-     System.out.println(&quot;--------&quot;);
- // 整数常量
-     System.out.println(60);
-     System.out.println(&quot;--------&quot;);
- //小数常量
-     System.out.println(13.14);
-     System.out.println(&quot;--------&quot;);
- // 字符常量
-     System.out.println('A');
-     System.out.println(&quot;--------&quot;);
- // 布尔常量
-     System.out.println(true);
-     System.out.println(&quot;--------&quot;);
- // 空常量
- // 空常量是不能直接输出的
-     System.out.println(null);
-}
-</code></pre>
-<p>}`</p>
-</li>
-</ol>
-<h4 id="数据类型">数据类型</h4>
-<ol>
-<li>
-<p>计算机存储单元</p>
-<ul>
-<li>
-<p>无论是内存还是硬盘，计算机存储设备的最小信息单元叫<strong>位（bit）</strong>，我们又称之为<strong>比特位</strong>，通常用小写字母<strong>b</strong>表示。而计算机中最小的存储单元叫<strong>字节（byte）</strong>，通常用大写字母<strong>B</strong>表示，字节是由连续的8个位组成</p>
-<blockquote>
-<p>1B（字节） = 8bit</p>
-<p>1KB = 1024B</p>
-<p>1MB = 1024KB</p>
-<p>1GB = 1024MB</p>
-<p>1TB = 1024GB</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>
-<p>数据类型</p>
-<ul>
-<li>Java语言是强类型语言，对于每一种数据都给出了明确的数据类型。不同的数据类型也分配了不同的内存空间，所以他们标识的数据大小也是不一样的。</li>
-<li>数据类型的分类</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="https://HealerLu.github.io/post-images/image-20200819135847353.png" alt="数据类型" loading="lazy"></figure>
-</li>
-<li>
-<p>数据类型内存占用和取值范围</p>
-<figure data-type="image" tabindex="4"><img src="https://HealerLu.github.io/post-images/image-20200819140413077.png" alt="数据类型内存占用和取值范围" loading="lazy"></figure>
-</li>
-</ol>
-<h4 id="变量">变量</h4>
-<ol>
-<li>
-<p>变量概述</p>
-<ul>
-<li>在程序运行过程中，其值可以发生改变的量</li>
-</ul>
-</li>
-<li>
-<p>变量的定义</p>
-<ul>
-<li>
-<p>格式： 数据类型 变量名 = 变量值；</p>
-<blockquote>
-<p><code>int a = 10;</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>
-<p>变量的使用</p>
-<ul>
-<li>
-<p>取值</p>
-<ul>
-<li>
-<p>取值格式：变量名</p>
-<blockquote>
-<p><code>a</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>
-<p>修改值</p>
-<ul>
-<li>
-<p>修改值格式： 变量名 = 变量值;</p>
-<blockquote>
-<p><code>a = 20</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<p><code>public class HelloWord { public static void main (String[] args) { 		// 定义变量 		int a = 10; 		// 输出变量 		System.out.println(a); 		// 修改值 		a = 20; 		// 输出变量 		System.out.println(a); } }</code></p>
-</li>
-<li>
-<p>声明变量的注意事项</p>
-<ul>
-<li>变量名字不能重复</li>
-<li>变量未赋值不能使用</li>
-<li><strong>long类型的变量名义的时候，为了防止整数过大，后面要加L</strong></li>
-<li><strong>float类型的变量定义的时候为了防止类型不兼容，后面要加F</strong></li>
-</ul>
-</li>
-</ol>
-<h4 id="标识符">标识符</h4>
-<ol>
-<li>标识符概述
-<ul>
-<li>标识符就是给类、方法、变量等起名字的符号</li>
-</ul>
-</li>
-<li>标识符的定义规则
-<ul>
-<li>由**数字、字母、下划线（_）和美元符（$）**组成</li>
-<li>不能以数字开头</li>
-<li>不能是关键字</li>
-<li>区分大小写</li>
-</ul>
-</li>
-<li>常见命名约定
-<ul>
-<li>小驼峰命名法：方法、变量
-<ul>
-<li>标识符是一个单词的时候，首字母小写</li>
-<li>标识符由多个字母组成的时候，第一个单词字母小写，其余单词首字母大写</li>
-</ul>
-</li>
-<li>大驼峰命名法：类
-<ul>
-<li>标识符是一个单词的时候，首字母大写</li>
-<li>标识符由多个字母组成的时候每个单词首字母大写</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="类型转换">类型转换</h4>
-<ol>
-<li>
-<p>类型转换分类</p>
-<ul>
-<li>
-<p>自动类型转换</p>
-<blockquote>
-<p>把一个表示数据范围小地数值或者变量赋值给另一个表示数据范围大的变量</p>
-</blockquote>
-<figure data-type="image" tabindex="5"><img src="https://HealerLu.github.io/post-images/image-20200819143801886.png" alt="数据范围从小到大图" loading="lazy"></figure>
-<blockquote>
-<p><code>double d = 10</code></p>
-</blockquote>
-</li>
-<li>
-<p>强制类型转换（不建议使用）</p>
-<blockquote>
-<p>把一个表示数据范围大的数值或者变量赋值给另一个表示数据范围小的变量</p>
-</blockquote>
-<blockquote>
-<p>格式： 目标数据类型 变量名 = （目标数据类型）值或者变量;</p>
-<p><code>int k = (int)88.88 ==&gt; k为88</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac终端如何使用代理]]></title>
-        <id>https://HealerLu.github.io/post/mac-zhong-duan-ru-he-shi-yong-dai-li/</id>
-        <link href="https://HealerLu.github.io/post/mac-zhong-duan-ru-he-shi-yong-dai-li/">
-        </link>
-        <updated>2020-08-17T02:05:46.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="在mac上安装使用shadowsocksx-ng-r8">在Mac上安装使用ShadowsocksX-NG-R8</h3>
-<ol>
-<li>
-<p><a href="https://HealerLu.github.io/post-images/ShadowsocksX-NG-R8.dmg">点击下载ShadowsocksX-NG-R8.dmg</a></p>
-</li>
-<li>
-<p>点击应用图标 ---&gt; HTTP代理设置 --&gt; 即可查看到监听的IP和端口号（一般为127.0.0.1:1087）</p>
-</li>
-</ol>
-<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/1597629976115.png" alt="HTTP代理设置" loading="lazy"></figure>
-<h3 id="使用iterm2终端设置代理">使用iterm2终端设置代理</h3>
-<ol>
-<li>
-<p>打开终端输入<code>vim ~/.zshrc</code>进入vim</p>
-</li>
-<li>
-<p>输入 `i进入编辑模式</p>
-</li>
-<li>
-<p>输入以下命令设置终端代理</p>
-</li>
-</ol>
-<p><code>alias goproxy='export http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087'</code><br>
-<code>alias disproxy='unset http_proxy https_proxy'</code></p>
-<p><em>注：alias为设置别名</em></p>
-<ol start="4">
-<li>
-<p>按下<code>esc</code>退出编辑模式，再按下<code>:wq</code>退出vim并保存</p>
-</li>
-<li>
-<p>使用<code>source ~/.zshrc</code>命令更新刚才编辑的内容</p>
-</li>
-<li>
-<p>直接在命令行运行<code>goproxy</code>即可启动终端代理</p>
-</li>
-<li>
-<p>运行<code>crul cip.cc</code>，输出的内容为代理服务器的IP时，即为设置成功，如下所示</p>
-<p>`IP	: 128.22.126.241<br>
-地址	: 日本  大阪府  大阪<br>
-运营商	: k-opti.com</p>
-<p>数据二	: 日本 | 大阪K Opti通讯</p>
-<p>数据三	:</p>
-<p>URL	: http://www.cip.cc/128.22.126.241`</p>
-</li>
-<li>
-<p>如果想关闭代理，运行<code>disproxy</code>即可</p>
-</li>
-</ol>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/Vk-b-Atmn/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://HealerLu.github.io/post/java-se-ji-chu-jdk-de-an-zhuang/">
+                  <h3 class="post-title">
+                    Java SE 基础
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
