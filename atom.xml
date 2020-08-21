@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HealerLu.github.io</id>
     <title>Healer</title>
-    <updated>2020-08-20T07:39:14.917Z</updated>
+    <updated>2020-08-21T05:24:34.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HealerLu.github.io"/>
     <link rel="self" href="https://HealerLu.github.io/atom.xml"/>
@@ -10,6 +10,230 @@
     <logo>https://HealerLu.github.io/images/avatar.png</logo>
     <icon>https://HealerLu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Healer</rights>
+    <entry>
+        <title type="html"><![CDATA[数组和方法]]></title>
+        <id>https://HealerLu.github.io/post/lP1sW6h3n/</id>
+        <link href="https://HealerLu.github.io/post/lP1sW6h3n/">
+        </link>
+        <updated>2020-08-21T05:22:44.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="数组概述">数组概述</h4>
+<ul>
+<li>数组（array）是一种用于存储多个相同类型数据的存储模型</li>
+</ul>
+<h4 id="数组的定义格式">数组的定义格式</h4>
+<ul>
+<li>
+<p>格式一：</p>
+<ul>
+<li>
+<p>数据类型[] 变量名</p>
+<blockquote>
+<p>int[] arr</p>
+<p>定义了一个int类型的数组，数组名是arr</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>格式二：</p>
+<ul>
+<li>
+<p>数据类型 变量名[]</p>
+<blockquote>
+<p>int arr[]</p>
+<p>定义了一个int类型的变量，变量名是arr数组</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数组初始化">数组初始化</h4>
+<ul>
+<li>
+<p>数组初始化概述</p>
+<ul>
+<li>Java中的数组必须先初始化，然后才能使用</li>
+<li>所谓初始化就是为数组中的数组元素分配内存空间，并为每个数组元素赋值</li>
+</ul>
+</li>
+<li>
+<p>数组初始化方式</p>
+<ul>
+<li>动态初始化</li>
+<li>静态初始化</li>
+</ul>
+</li>
+<li>
+<p>动态初始化</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>初始化时只制定数组长度，由系统为数组分配初始值</li>
+</ul>
+</li>
+<li>
+<p>初始化格式</p>
+<ul>
+<li>
+<p>数据类型[] 变量名 = new 数据类型[数组长度]</p>
+</li>
+<li>
+<blockquote>
+<p>int[] arr = new int[3]</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>数组元素访问</p>
+<ul>
+<li>数组变量访问方式
+<ul>
+<li>格式：数组名</li>
+</ul>
+</li>
+<li>数组内部保存的数据的访问方式
+<ul>
+<li>格式：数组名[索引]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>静态初始化</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>初始化时指定每个数组元素的初始值，由系统决定数组长度</li>
+</ul>
+</li>
+<li>
+<p>格式</p>
+<ul>
+<li>
+<p>数据类型[] 变量名 = new 数据类型[]{数据1， 数据2， 数据3，......}</p>
+</li>
+<li>
+<blockquote>
+<p>int[] arr = new int[]{1, 2, 3};</p>
+</blockquote>
+</li>
+<li>
+<p>简化格式：数据类型[] 变量名 = {数据1， 数据2， 数据3，......};</p>
+</li>
+<li>
+<blockquote>
+<p>int[] arr = {1, 2, 3};</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="方法">方法</h4>
+<ul>
+<li>
+<p>概述</p>
+<ul>
+<li>
+<p>方法(method)是将具有独立功能的代码块组织成为一个整体，使其具有特殊功能的代码集。</p>
+<blockquote>
+<p>方法必须先创建才可以使用，该过程称为方法定义</p>
+<p>方法创建后并不是直接运行的，需要手动使用后才执行，该过程称为方法调用</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>方法的定义</p>
+<ul>
+<li>
+<p>格式</p>
+<p><code>public static void 方法名(){</code></p>
+<p>​	// 方法体</p>
+<p><code>}</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>方法的调用</p>
+<ul>
+<li>
+<p>格式</p>
+<p><code>方法名()</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>带参数方法的定义</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200820174025554.png" alt="带参数方法的定义" loading="lazy"></figure>
+<ul>
+<li>
+<p>带参数方法的调用</p>
+<figure data-type="image" tabindex="2"><img src="https://HealerLu.github.io/post-images/image-20200820174141436.png" alt="带参数方法的调用" loading="lazy"></figure>
+</li>
+<li>
+<p>带返回值方法的定义</p>
+<figure data-type="image" tabindex="3"><img src="https://HealerLu.github.io/post-images/image-20200821095402058.png" alt="带返回值方法的定义" loading="lazy"></figure>
+</li>
+<li>
+<p>带返回值方法的调用</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://HealerLu.github.io/post-images/image-20200821095435570.png" alt="带返回值方法的调用" loading="lazy"></figure>
+<h4 id="方法重载">方法重载</h4>
+<ul>
+<li>
+<p>概述</p>
+<blockquote>
+<p>方法重载是指同一个类中定义的多个方法之间的关系，满足下列条件的多个方法相互构成重载</p>
+</blockquote>
+<ul>
+<li>多个方法都在同一个类中</li>
+<li>多个方法具有相同的方法名</li>
+<li>多个方法的参数不相同（类型不同或者数量不同）</li>
+</ul>
+</li>
+<li>
+<p>方法重载特点</p>
+<ul>
+<li>重载仅对应方法的定义，与方法的调用无关，调用方式参考标准格式</li>
+<li>重载仅针对同哟个类中方法的名称与参数进行识别，与返回值无关。换句话说就是不能通过返回值来判定两个方法是否相互构成重载</li>
+</ul>
+</li>
+</ul>
+<h4 id="方法参数传递">方法参数传递</h4>
+<ul>
+<li>
+<p>基本类型</p>
+<blockquote>
+<p>对于基本数据类型的参数，形参的改变，不影响实参的值</p>
+</blockquote>
+<figure data-type="image" tabindex="5"><img src="https://HealerLu.github.io/post-images/image-20200821103223726.png" alt="对于基本数据类型的参数，形参的改变，不影响实参的值" loading="lazy"></figure>
+<blockquote>
+<p>输出都为100</p>
+</blockquote>
+</li>
+<li>
+<p>引用类型</p>
+<blockquote>
+<p>对于引用类型的参数，形参的改变，影响实参的值</p>
+</blockquote>
+<figure data-type="image" tabindex="6"><img src="https://HealerLu.github.io/post-images/image-20200821103954981.png" alt="对于引用类型的参数，形参的改变，影响实参的值" loading="lazy"></figure>
+<blockquote>
+<p>第一次输出20，第二次输出200</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[算术运算符和分支语句]]></title>
         <id>https://HealerLu.github.io/post/suan-zhu-yun-suan-fu-he-fen-zhi-yu-ju/</id>
