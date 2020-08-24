@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>面向对象基础 | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1598239887699">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="类
+
+类是对现实生活中一类具有共同属性和行为的事物的抽象
+
+
+类的特点
+
+类是对象的数据类型
+类是具有相同属性和行为的一组对象的合集
+
+
+
+对象的属性
+
+对象具有各种特征，每个对象的每个属性都有特定的值
+
+对象的行为
+
+对象能够执行的操作
+..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1598239887699" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">面向对象基础</h2>
+            <div class="post-date">2020-08-24</div>
+            
+            <div class="post-content" v-pre>
+              <h4 id="类">类</h4>
+<blockquote>
+<p>类是对现实生活中一类具有共同属性和行为的事物的抽象</p>
+</blockquote>
+<ul>
+<li>类的特点
+<ul>
+<li>类是对象的数据类型</li>
+<li>类是具有相同属性和行为的一组对象的合集</li>
+</ul>
+</li>
+</ul>
+<h4 id="对象的属性">对象的属性</h4>
+<blockquote>
+<p>对象具有各种特征，每个对象的每个属性都有特定的值</p>
+</blockquote>
+<h4 id="对象的行为">对象的行为</h4>
+<blockquote>
+<p>对象能够执行的操作</p>
+</blockquote>
+<h4 id="类和对象的关系">类和对象的关系</h4>
+<blockquote>
+<p>类：是对现实生活中一类具有共同属性和行为的事物的抽象</p>
+<p>对象：是能够看得到摸得着的真实存在的实体</p>
+</blockquote>
+<h4 id="类的定义">类的定义</h4>
+<ul>
+<li>
+<p>类的重要性</p>
+<blockquote>
+<p>类是Java程序的基本组成单位</p>
+</blockquote>
+</li>
+<li>
+<p>类的组成</p>
+<ul>
+<li>
+<p>属性</p>
+<blockquote>
+<p>在类中通过成员变量来体现（类中方法外的变量）</p>
+</blockquote>
+</li>
+<li>
+<p>行为</p>
+<blockquote>
+<p>在类中通过成员方法来体现（和前面的方法相比去掉static关键字即可）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="类的定义-2">类的定义</h4>
+<figure data-type="image" tabindex="1"><img src="D:%5CSoftware%5CGridea%5Cdoc%5Cpost-images%5Cimage-20200821141416277.png" alt="类的定义" loading="lazy"></figure>
+<h4 id="对象的使用">对象的使用</h4>
+<figure data-type="image" tabindex="2"><img src="D:%5CSoftware%5CGridea%5Cdoc%5Cpost-images%5Cimage-20200821141923920.png" alt="对象的创建和使用" loading="lazy"></figure>
+<h4 id="成员变量和局部变量的的区别">成员变量和局部变量的的区别</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">区别</th>
+<th style="text-align:center">成员变量</th>
+<th style="text-align:center">局部变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">类中位置不同</td>
+<td style="text-align:center">类中方法外</td>
+<td style="text-align:center">方法内或者方法声明上（形参）</td>
+</tr>
+<tr>
+<td style="text-align:center">内存中位置不同</td>
+<td style="text-align:center">堆内存</td>
+<td style="text-align:center">栈内存</td>
+</tr>
+<tr>
+<td style="text-align:center">生命周期不同</td>
+<td style="text-align:center">随着对象的存在而存在，随着对象的消失而消失</td>
+<td style="text-align:center">随着方法的调用而存在，随着方法的调用结束而消失</td>
+</tr>
+<tr>
+<td style="text-align:center">初始化值不同</td>
+<td style="text-align:center">有默认的初始化值</td>
+<td style="text-align:center">没有默认的初始化值，必须先定义赋值，才能使用</td>
+</tr>
+</tbody>
+</table>
+<h4 id="private关键字">private关键字</h4>
+<ul>
+<li>概述
+<ul>
+<li>是一个权限修饰符</li>
+<li>可以修饰成员（成员变量和成员方法）</li>
+<li>作用是保护成员不被别的类使用，被private修饰的成员只在本类中才能访问</li>
+</ul>
+</li>
+<li>针对private修饰的成员变量，如果需要被其他类使用，提供相应的操作
+<ul>
+<li>提供&quot;get变量名（）&quot;方法，用于获取成员变量的值，方法用public修饰</li>
+<li>提供&quot;set变量名（参数）&quot;方法，用于设置成员变量的值，方法用public修饰</li>
+</ul>
+</li>
+</ul>
+<h4 id="封装">封装</h4>
+<ul>
+<li>
+<p>封装概述</p>
+<ul>
+<li>封装是面向对象三大特征之一（封装、继承、多态）</li>
+<li>封装是面向对象编程语言对客观世界的模拟，客观世界里的成员变量都是隐藏在对象内部的，外界是无法直接操作的。</li>
+</ul>
+</li>
+<li>
+<p>封装的原则</p>
+<ul>
+<li>
+<p>将类的某些信息隐藏在类的内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问</p>
+<blockquote>
+<p>成员变量用private进行修饰，提供对象的getXxx()/setXxx()方法</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>封装的好处</p>
+<ul>
+<li>通过方法来控制成员变量的操作，提高了代码的安全性</li>
+<li>把代码用方法进行封装，提高了代码的复用性</li>
+</ul>
+</li>
+</ul>
+<h4 id="构造方法">构造方法</h4>
+<blockquote>
+<p>构造方法是一种特殊的方法</p>
+<p>作用：创建对象</p>
+<p>格式：<code>public class 类名{</code></p>
+<p><code>修饰符 类名(参数){}</code></p>
+<p><code>}</code></p>
+<p>功能：主要是完成对象数据的初始化</p>
+</blockquote>
+<ul>
+<li>
+<p>构造方法的注意事项</p>
+<ul>
+<li>
+<p>构造方法的创建</p>
+<ul>
+<li>如果没有定义的构造方法，系统将给出一个默认的无参构造方法</li>
+<li>如果定义了构造方法，系统将不再提供默认的构造方法</li>
+</ul>
+</li>
+<li>
+<p>构造方法的重载</p>
+<ul>
+<li>如果自定义了带参构造方法，还要使用无参数构造方法，就必须再写一个无参数的构造方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/Vk-b-Atmn/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://HealerLu.github.io/post/lP1sW6h3n/">
+                  <h3 class="post-title">
+                    数组和方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
