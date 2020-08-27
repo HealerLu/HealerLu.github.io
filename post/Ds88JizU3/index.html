@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>修饰符 | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1598521232239">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="修饰符的分类
+
+
+权限修饰符
+
+
+状态修饰符
+权限修饰符
+
+
+
+修饰符
+同一个类中
+同一个包中子类无关类
+不同包的子类
+不同包的无关类
+
+
+
+
+private
+✔
+✘
+✘
+✘
+
+
+默认
+✔
+✔
+✘
+✘
+
+
+protected
+✔
+✔
+✔
+✘..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1598521232239" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">修饰符</h2>
+            <div class="post-date">2020-08-27</div>
+            
+            <div class="post-content" v-pre>
+              <h4 id="修饰符的分类">修饰符的分类</h4>
+<ul>
+<li>
+<p>权限修饰符</p>
+</li>
+<li>
+<p>状态修饰符</p>
+<h5 id="权限修饰符">权限修饰符</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:center">同一个类中</th>
+<th style="text-align:center">同一个包中子类无关类</th>
+<th style="text-align:center">不同包的子类</th>
+<th style="text-align:center">不同包的无关类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">private</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">默认</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">protected</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">public</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+</tbody>
+</table>
+<h5 id="状态修饰符">状态修饰符</h5>
+<ul>
+<li>final （最终态）</li>
+<li>static（静态）</li>
+</ul>
+<h6 id="final">final</h6>
+<ul>
+<li>
+<p>final关键字是最终的意思，可以修饰成员方法、成员变量、类</p>
+</li>
+<li>
+<p>final修饰的特点</p>
+<ul>
+<li>修饰方法：表明该方法是最终方法，不能被重写</li>
+<li>修饰变量：表明该变量是常量，不能被再次赋值</li>
+<li>修饰类：表明该类是最终类，不能被继承</li>
+</ul>
+</li>
+</ul>
+<h6 id="static">static</h6>
+<ul>
+<li>
+<p>static关键字是静态的意思，可以修饰成员方法、成员变量</p>
+</li>
+<li>
+<p>static修饰的特点</p>
+<ul>
+<li>被类的所有对象共享（这也判断是否使用静态修饰符的条件）</li>
+<li>可以通过类名调用（也可以通过对象名调用）</li>
+</ul>
+</li>
+<li>
+<p>static访问特点</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">静态成员变量</th>
+<th style="text-align:center">非静态成员变量</th>
+<th style="text-align:center">静态成员方法</th>
+<th style="text-align:center">非静态成员方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">非静态成员方法</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">静态成员方法</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>静态成员方法只能访问静态成员</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/Vk-b-Atmn/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://HealerLu.github.io/post/rBwY8CzIg/">
+                  <h3 class="post-title">
+                    面向对象基础
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
