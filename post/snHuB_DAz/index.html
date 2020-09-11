@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>IO | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1599813098012">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="File
+File类概述
+
+File是文件和目录路径名的抽象表示
+
+
+文件和目录是可以通过File封装成对象的
+对于File而言。其封装的并不是一个真正存在的文件，仅仅是一个路径名而已。它可以是存在的，也可以是不存在的。将来是要通过具体的操..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1599813098012" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">IO</h2>
+            <div class="post-date">2020-09-11</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="file">File</h3>
+<h4 id="file类概述">File类概述</h4>
+<blockquote>
+<p>File是文件和目录路径名的抽象表示</p>
+</blockquote>
+<ul>
+<li>文件和目录是可以通过File封装成对象的</li>
+<li>对于File而言。其封装的并不是一个真正存在的文件，仅仅是一个路径名而已。它可以是存在的，也可以是不存在的。将来是要通过具体的操作把这个路径的内容转为具体存在的。</li>
+</ul>
+<h4 id="file类的构造方法">File类的构造方法</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">File(String pathname)</td>
+<td style="text-align:center">通过将给定的路径名字符串转换为抽象路径名来创建新的File实例</td>
+</tr>
+<tr>
+<td style="text-align:center">File(String parent, String child)</td>
+<td style="text-align:center">从父路径名字符串和子路径名字符串创建新的File实例</td>
+</tr>
+<tr>
+<td style="text-align:center">File(File parent, String child)</td>
+<td style="text-align:center">从父抽象路径名和自路径名字符串创建新的File实例</td>
+</tr>
+</tbody>
+</table>
+<h4 id="file类创建功能">File类创建功能</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public boolean createNewFile()</td>
+<td style="text-align:center">当具有该名称的文件不存在时，创建一个由该抽象路径名命名的新空文件</td>
+</tr>
+<tr>
+<td style="text-align:center">public boolean mkdir()</td>
+<td style="text-align:center">创建由此抽象路径命名的目录</td>
+</tr>
+<tr>
+<td style="text-align:center">public boolean mkdirs()</td>
+<td style="text-align:center">创建由此抽象路径命名的目录，包括任何必须但不存在的父目录</td>
+</tr>
+</tbody>
+</table>
+<h5 id="file类的判断和获取功能">File类的判断和获取功能</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public boolean isDirectory()</td>
+<td style="text-align:center">测试此抽象路径名表示的File是否为目录</td>
+</tr>
+<tr>
+<td style="text-align:center">public boolean isFile()</td>
+<td style="text-align:center">测试此抽象路径名表示的File是否为文件</td>
+</tr>
+<tr>
+<td style="text-align:center">public boolean exists()</td>
+<td style="text-align:center">测试此抽象路径名表示的File是否存在</td>
+</tr>
+<tr>
+<td style="text-align:center">public String getAbsoultePath()</td>
+<td style="text-align:center">返回此抽象路径名的绝对路径名字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">public String getPath()</td>
+<td style="text-align:center">将此抽象路径转换为路径名字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">public String getName()</td>
+<td style="text-align:center">返回此抽线路径名表示的文件或目录的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">public String[] list()</td>
+<td style="text-align:center">返回此抽象路径名标识的目录中的文件和目录的名称字符串数组</td>
+</tr>
+<tr>
+<td style="text-align:center">public File[] listFiles()</td>
+<td style="text-align:center">返回此抽象路径名表示的目录中的文件和目录的File对象数组</td>
+</tr>
+</tbody>
+</table>
+<h5 id="file类的删除功能">File类的删除功能</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public boolean delete()</td>
+<td style="text-align:center">删除由此抽象路径名表示的文件或目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字节流">字节流</h3>
+<h4 id="io流概述和分类">IO流概述和分类</h4>
+<h5 id="io流概述">IO流概述</h5>
+<ul>
+<li>IO：输入/输出(input/Output)</li>
+<li>流：是一种抽象概念，是对数据传输的总成。也就是说数据在设备间的传输称为流，流的本质是数据传输。</li>
+<li>IO流就是用来处理设备间数据传输问题的，常见的应用：我呢见赋值、文件上传、文件下载</li>
+</ul>
+<h5 id="分类">分类</h5>
+<ul>
+<li>
+<p>按照数据的流向</p>
+<ul>
+<li>输入流：读数据</li>
+<li>输出流：写数据</li>
+</ul>
+</li>
+<li>
+<p>按照数据类型分类</p>
+<ul>
+<li>字节流
+<ul>
+<li>字节输入流、字节输出流</li>
+</ul>
+</li>
+<li>字符流
+<ul>
+<li>字符输入流、字符输出流</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一般来说是按照数据类型来分的</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="字节流写数据">字节流写数据</h5>
+<h6 id="字节流抽象基类">字节流抽象基类</h6>
+<ul>
+<li>InputStream：这个抽象类是表示字节输入流的所有类的超类</li>
+<li>OutputStream：这个抽象类是表示字节输出流的所有类的超类</li>
+</ul>
+<h6 id="fileoutputstream文件输出流用于将数据写入file">FileOutputStream：文件输出流用于将数据写入file</h6>
+<ul>
+<li>FileOutputStream(String name)：创建文件输出流以指定的名称写入文件</li>
+</ul>
+<h6 id="使用字节输出流写数据的步骤">使用字节输出流写数据的步骤：</h6>
+<ul>
+<li>创建字节输出流对象（调用系统功能创建了文件，创建字节输出流对象，让字节输出流对象指向文件）</li>
+<li>调用字节输出流对象的写数据方法</li>
+<li>释放资源（关闭此文件输出流并释放与此流相关联的任何系统资源）</li>
+</ul>
+<h6 id="字节流写数据的方法">字节流写数据的方法</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">void write(int b)</td>
+<td style="text-align:center">将指定的字节写入此文件输出流<br />一次写一个字节数据</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(byte[] b)</td>
+<td style="text-align:center">将b.lenght字节从指定得字节数组写入此文件输出流<br />一次写一个字节的数据</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(byte[] b, int off, int len)</td>
+<td style="text-align:center">将len字节从指定的字节数组开始，从偏移量off开始写入此文件输出流<br />一次写一个字节数组的部分数据</td>
+</tr>
+</tbody>
+</table>
+<h6 id="字节流写数据实现换行">字节流写数据实现换行</h6>
+<pre><code class="language-java">FileOutputStream fos = new FileOutputStream(&quot;fos.txt&quot;);
+
+for (int i = 0; i &lt; 10; i ++) {
+    fos.write(&quot;hello&quot;.getBytes());
+    // 实现换行   windows：\r\n   linux：\n mac: \r
+    fos.write(&quot;\r\n&quot;.getBytes());
+}
+// 释放资源
+fos.close();
+</code></pre>
+<h6 id="字节流写数据实现追加写入">字节流写数据实现追加写入</h6>
+<ul>
+<li>public FileOutputStream(String name, boolean append)</li>
+<li>创建文件输出流以指定的名称写入文件，如果第二个参数为true，则字节将写入文件的末尾而不是开头</li>
+</ul>
+<h6 id="字节流写数据加异常处理">字节流写数据加异常处理</h6>
+<ul>
+<li>finally：在异常处理时提供finally块来执行所有清除操作。比如IO流中的释放资源</li>
+<li>特点：被finally控制的语句一定会执行，除非JVM退出</li>
+</ul>
+<pre><code class="language-java">try{
+    // 可能出现异常的代码
+}catch(异常类名 变量名) {
+    // 异常的处理代码
+} finally{
+    // 执行所有的清楚操作
+}
+</code></pre>
+<pre><code class="language-java">FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(&quot;Z:\\test&quot;);
+            fos.write(&quot;Hello&quot;.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+</code></pre>
+<h5 id="字节缓冲流">字节缓冲流</h5>
+<ul>
+<li>BufferedOutputStream：该类实现缓冲输出流。通过设置这样的输出流，应用程序可以向底层输出流写入字节，而不必为写入的每个字节导致底层系统的调用</li>
+<li>BufferedInputStream：创建BufferedInputStream将创建一个内部缓冲区数组。当从流中读取或跳过字节时，内部缓冲区将根据需要从包含的输入流中重新填充，一次很多字节</li>
+</ul>
+<h6 id="构造方法">构造方法</h6>
+<ul>
+<li>字节缓冲输出流：BufferedOutputStream(OutputStream out)</li>
+<li>字节缓冲输入流：BufferedInputStream(InputStream in)</li>
+<li>构造方法需要的是字节流而不是具体的文件或者路径，是因为字节缓冲流仅仅提供缓冲区域，而真正读写数据还得依靠基本的字节流对象进行操作</li>
+</ul>
+<h3 id="字符流">字符流</h3>
+<h4 id="为什么会出现字符流">为什么会出现字符流</h4>
+<blockquote>
+<p>由于字节流操作中文不是特别的方便，所以Java就提供了字符流</p>
+</blockquote>
+<ul>
+<li>字符流 = 字节流 + 编码表</li>
+</ul>
+<h4 id="字符串中的编码解码问题">字符串中的编码解码问题</h4>
+<h5 id="相关方法">相关方法</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte[] getBytes()</td>
+<td style="text-align:center">使用平台的默认字符集将该 String编码为一系列字节</td>
+</tr>
+<tr>
+<td style="text-align:center">byte[] getBytes(String charsetName)</td>
+<td style="text-align:center">使用指定的字符集将该 String编码为一系列字节</td>
+</tr>
+<tr>
+<td style="text-align:center">String(byte[] bytes)</td>
+<td style="text-align:center">使用平台的默认字符集解码指定的字节数组来创建字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">String(byte[] bytes, String charsetName)</td>
+<td style="text-align:center">通过指定的字符集解码指定的字节数组来创建字符串</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符流中的编码解码问题">字符流中的编码解码问题</h4>
+<h5 id="字符流抽象基类">字符流抽象基类</h5>
+<ul>
+<li>Reader：字符输入流的抽象类</li>
+<li>Writer：字符输出流的抽象类</li>
+</ul>
+<h5 id="字符流中和编码解码问题相关的两个类">字符流中和编码解码问题相关的两个类</h5>
+<ul>
+<li>InputStreamReader     字符输入流</li>
+<li>OutputStreamWriter    字符输出流</li>
+</ul>
+<h5 id="便捷转换类">便捷转换类</h5>
+<ul>
+<li>FileReader：用于读取字符文件的便捷类
+<ul>
+<li>File Reader(String fileName)</li>
+</ul>
+</li>
+<li>FileWriter：用于写入字符文件的便捷类
+<ul>
+<li>FileWriter(String fileName)</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符流写数据的5种方式">字符流写数据的5种方式</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">void write(int c)</td>
+<td style="text-align:center">写一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(char[] cbuf)</td>
+<td style="text-align:center">写入一个字符数组</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(char[] cbuf, int off, int len)</td>
+<td style="text-align:center">写入字符数组的一部分</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(String str)</td>
+<td style="text-align:center">写一个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">void write(String str, int off, int len)</td>
+<td style="text-align:center">写一个字符串的一部分</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">flush()</td>
+<td style="text-align:center">刷新流，还可以继续写数据</td>
+</tr>
+<tr>
+<td style="text-align:center">close()</td>
+<td style="text-align:center">关闭流，释放资源，但是在关闭前会先刷新流。一旦关闭，就不能再写数据</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符流读数据的2种方式">字符流读数据的2种方式</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int read()</td>
+<td style="text-align:center">一次读一个字符数据</td>
+</tr>
+<tr>
+<td style="text-align:center">int read(char[] cbuf)</td>
+<td style="text-align:center">一次读一个字符数组数据</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符缓冲流">字符缓冲流</h4>
+<h5 id="字符缓冲流-2">字符缓冲流</h5>
+<ul>
+<li>BufferedWriter ：将文本写入字符输出流，缓冲字符，以提供单个字符，数组和字符串的高效写入，可<br>
+以指定缓冲区大小，或者可以接受默认大小。默认值足够大，可用于大多数用途</li>
+<li>BufferedReader ：从字符输入流读取文本，缓冲字符，以提供字符，数组和行的高效读取，可以指定缓<br>
+冲区大小，或者可以使用默认大小。 默认值足够大，可用于大多数用途</li>
+</ul>
+<h5 id="构造方法-2">构造方法</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">BufferedWriter(Writer out)</td>
+<td style="text-align:center">创建字符缓冲输出流对象</td>
+</tr>
+<tr>
+<td style="text-align:center">BufferedReader(Reader in)</td>
+<td style="text-align:center">创建字符缓冲输入流对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符缓冲流的特有功能">字符缓冲流的特有功能</h4>
+<ul>
+<li>BufferedWriter
+<ul>
+<li>void newLine()：写一行行分隔符，行分隔符字符串由系统属性定义</li>
+</ul>
+</li>
+<li>BufferedReader:
+<ul>
+<li>public String readLine()：读一行文字。结果包含行的内容字符串，不包括任何行终止字符，如果流的结尾已经到达，则为null</li>
+</ul>
+</li>
+</ul>
+<h3 id="io流小结">IO流小结</h3>
+<h5 id="字节流-2">字节流</h5>
+<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200911154542655.png" alt="image-20200911154542655" loading="lazy"></figure>
+<h5 id="字符流-2">字符流</h5>
+<figure data-type="image" tabindex="2"><img src="https://HealerLu.github.io/post-images/image-20200911154617711.png" alt="image-20200911154617711" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/Vk-b-Atmn/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://HealerLu.github.io/post/f-4HJd9X2/">
+                  <h3 class="post-title">
+                    集合
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
