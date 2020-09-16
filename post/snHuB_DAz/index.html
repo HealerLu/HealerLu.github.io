@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1599813098012">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1600242126933">
 <link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@ File是文件和目录路径名的抽象表示
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://HealerLu.github.io">
-        <img src="https://HealerLu.github.io/images/avatar.png?v=1599813098012" class="site-logo">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1600242126933" class="site-logo">
         <h1 class="site-title">Healer</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -512,6 +512,306 @@ fos.close();
 <figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200911154542655.png" alt="image-20200911154542655" loading="lazy"></figure>
 <h5 id="字符流-2">字符流</h5>
 <figure data-type="image" tabindex="2"><img src="https://HealerLu.github.io/post-images/image-20200911154617711.png" alt="image-20200911154617711" loading="lazy"></figure>
+<h4 id="复制多级文件案例">复制多级文件案例</h4>
+<pre><code class="language-java">public class CopyFolder {
+    public static void main(String[] args) throws IOException {
+        // 创建数据源File对象
+        File srcFile = new File(&quot;数据源路径&quot;);
+        // 创建目的地File对象
+        File destFile = new File(&quot;目的地路径&quot;);
+
+        copyFolder(srcFile, destFile);
+
+    }
+    // 文件夹的复制方法
+    public static void copyFolder(File srcFile, File destFile) throws IOException {
+        if (srcFile.isDirectory()) {
+            String srcFileName = srcFile.getName();
+            // 生成新的目录
+            File newFolder = new File(destFile, srcFileName);
+            if (!newFolder.exists()) {
+                newFolder.mkdir();
+            }
+            // 获取数据源目录下的所有文件或者文件夹的数组
+            File[] fileArray = srcFile.listFiles();
+            // 遍历数组得到每一个File对象
+            for(File file : fileArray) {
+                // 把该file作为数据源File对象，递归调用复制文件夹的方法
+                copyFolder(file, newFolder);
+            }
+        } else {
+            // 说明是文件，直接复制
+            File newFile = new File(destFile, srcFile.getName());
+            copyFile(srcFile, newFile);
+        }
+    }
+    // 字节流缓冲复制文件  try ... catch ... finally的方式处理异常
+    /*public static void copyFile(File srcFile, File destFile) {
+        BufferedInputStream bf = null;
+        BufferedOutputStream bo = null;
+        try {
+            // 字节流缓冲输入方法
+            bf = new BufferedInputStream(new FileInputStream(srcFile));
+            // 字节流缓冲输出方法
+            bo = new BufferedOutputStream(new FileOutputStream(destFile));
+
+            byte[] bys = new byte[1024];
+            int len;
+            while ((len = bf.read(bys)) != -1) {
+                bo.write(bys, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bf != null) {
+                try {
+                    bf.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (bo != null) {
+                try {
+                    bo.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }*/
+    // JDK7之后的改进方案，可以自动释放资源
+    /*public static void copyFile(File srcFile, File destFile) {
+        try(BufferedInputStream bf = new BufferedInputStream(new FileInputStream(srcFile));
+            BufferedOutputStream bo = new BufferedOutputStream(new FileOutputStream(destFile));) {
+
+            byte[] bys = new byte[1024];
+            int len;
+            while ((len = bf.read(bys)) != -1) {
+                bo.write(bys, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+    // JDK9之后的改进方案
+    public static void copyFile(File srcFile, File destFile) throws IOException {
+        BufferedInputStream bf = new BufferedInputStream(new FileInputStream(srcFile));
+        BufferedOutputStream bo = new BufferedOutputStream(new FileOutputStream(destFile));
+        try(bf; bo) {
+            byte[] bys = new byte[1024];
+            int len;
+            while ((len = bf.read(bys)) != -1) {
+                bo.write(bys, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+</code></pre>
+<h3 id="特殊操作流">特殊操作流</h3>
+<h4 id="标准输入输出流">标准输入输出流</h4>
+<h5 id="标准输入流">标准输入流</h5>
+<blockquote>
+<p>System类中有两个静态的成员变量：</p>
+</blockquote>
+<ul>
+<li>public static final InputStream in：标准输入流。通常该流对应于键盘输入活由主机环境或用户指定的另一个输入源。</li>
+<li>public static final printStream out：标准输出流。通常该流对应于显示输出或由主机环境或用户指定的另一个输出目标。</li>
+</ul>
+<blockquote>
+<p>自己实现键盘录入数据：</p>
+</blockquote>
+<ul>
+<li>
+<pre><code class="language-java">BufferedReader brs = new BufferedReader(new InputStreamReader(System.in));
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>Java也直接提供了一个类实现键盘录入</p>
+</blockquote>
+<ul>
+<li>
+<pre><code class="language-java">Scanner sc = new Scanner(System.in);
+</code></pre>
+</li>
+</ul>
+<h5 id="标准输出流">标准输出流</h5>
+<blockquote>
+<p>输出语句的本质是一个标准输出流</p>
+</blockquote>
+<ul>
+<li>printStream ps = System.out;</li>
+<li>printStream类有的方法，System.out都可以使用</li>
+</ul>
+<h4 id="打印流">打印流</h4>
+<h5 id="打印流分类">打印流分类：</h5>
+<ul>
+<li>字节打印流：PrintSteam</li>
+<li>字符打印流：PrintWrite</li>
+</ul>
+<h5 id="打印流的特点">打印流的特点：</h5>
+<ul>
+<li>只负责输出数据，不负责读取数据</li>
+<li>有自己的特有方法</li>
+</ul>
+<h5 id="字节打印流">字节打印流</h5>
+<ul>
+<li>PrintStream(String fileName)：使用指定的文件名创建新的打印流</li>
+<li>使用继承父类的方法写数据，查看的时候会转码；使用自己特有的方法写出局，查看的数据原样输出</li>
+</ul>
+<h5 id="字符打印流">字符打印流</h5>
+<blockquote>
+<p>字符打印流PrintWriter的构造方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PrintWriter(String fileName)</td>
+<td style="text-align:left">使用指定文件创建一个新的PrintWriter，而不需要自动执行刷新</td>
+</tr>
+<tr>
+<td style="text-align:left">PrintWriter(Writer out, boolean autoFlush)</td>
+<td style="text-align:left">创建一个新的PrinWriter<br />- out:字符输出流<br />- autoFlush：一个布尔值，如果为真，则printIn、printf或format方法将刷新输出缓冲区</td>
+</tr>
+</tbody>
+</table>
+<h4 id="对象序列化流">对象序列化流</h4>
+<blockquote>
+<p>对象序列化：就是将对象保存到磁盘中，或者在网络中串数对象</p>
+<p>这种机制就是使用了一个字节序列表示一个对象，该字节序列包含：对象的类型、对象的数据和对象存储的属性等信息。字节序列写到文件之后，相当于文件中持久保存了一个对象的信息</p>
+<p>反之，该字节序列还可以从文件中读取回来，重构对象，对他进行反序列化</p>
+</blockquote>
+<h5 id="对象序列化流和对象饭序列化流">对象序列化流和对象饭序列化流</h5>
+<ul>
+<li>对象序列化流：ObjectOutputStream</li>
+<li>对象反序列化流：ObjectInputStream</li>
+</ul>
+<h6 id="对象序列化流-2">对象序列化流</h6>
+<blockquote>
+<p>ObjectOutputStream：将Java对象的原始数据类型和图形写入OutputStream，可以使用ObjectInputStream读取（重构）对象。可以通过使用流的文件来实现对象的持久存储。如果流是网络套接字流，则可以再另一个主机上或另一个进程中重构对象</p>
+</blockquote>
+<ul>
+<li>构造方法
+<ul>
+<li>ObjectOutputStream(OutputStream out)：创建一个写入指定的OutputStream的ObjectOutputStream</li>
+</ul>
+</li>
+<li>序列化对象方法
+<ul>
+<li>void writeObject(Object obj)：将指定的对象写入ObjectOutputStream</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一个对象想要被序列化，该对象所属的类必须实现Serializable接口</p>
+<p>Serializable是一个标记接口，实现该接口，不需要重写任何方法</p>
+</blockquote>
+<ul>
+<li>
+<p>注意事项</p>
+<ul>
+<li>
+<p>用对象序列化流序列化了一个对象后，修改对象所属的类文件后，出现了InvalidClassException</p>
+<ul>
+<li>
+<p>给对象所属的类加一个serialVersionUID</p>
+<ul>
+<li>
+<pre><code class="language-java">private static final long serialVersionUID = 42L
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>对象中的某个成员变量的值不想被序列化时，可以给成员变量添加<code>transient</code>关键字修饰，该关键字标记的成员变量不参与序列化过程</p>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="对象反序列化流">对象反序列化流</h6>
+<blockquote>
+<p>ObjectInputStream：反序列化先前使用ObjectOutputStream编写的原始数据和对象</p>
+</blockquote>
+<ul>
+<li>构造方法
+<ul>
+<li>ObjectInputStream(inputStream in)：创建从指定得InputStream读取的ObjectInputStream</li>
+</ul>
+</li>
+<li>反序列化对象方法
+<ul>
+<li>ObjectreadObject()：从ObjectInputStream读取一个对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="properties">Properties</h3>
+<h4 id="properties概述">Properties概述</h4>
+<ul>
+<li>是一个Map体系的集合类</li>
+<li>Properties可以保存到流中或从流中加载</li>
+</ul>
+<h4 id="properties作为集合特有的方法">Properties作为集合特有的方法</h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Object setProperty(String key, String value)</td>
+<td>设置集合的键和值，都是String类型，底层调用Hashtable方法 put</td>
+</tr>
+<tr>
+<td>String getProperty(String key)</td>
+<td>使用此属性列表中指定的键搜索属性</td>
+</tr>
+<tr>
+<td>Set<String> stringPropertyNames()</td>
+<td>从该属性列表重返回一个不可修改的键集，其中键及其对应的值是字符串</td>
+</tr>
+</tbody>
+</table>
+<h4 id="properties和io流结合的方法">Properties和IO流结合的方法：</h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void load(InputStream inStream)</td>
+<td>从输入字节流读取属性列表（键和元素对）</td>
+</tr>
+<tr>
+<td>void load(Reader reader)</td>
+<td>从输入字符流读取属性列表（键和元素对）</td>
+</tr>
+<tr>
+<td>void store(OutputStream out, String comments)</td>
+<td>将此属性列表（键和元素对）写入此Properties表中，以适合于使用load(inputStream)方法的格式写入输出字节流</td>
+</tr>
+<tr>
+<td>void store(Writer writer, String comments)</td>
+<td>将此属性列表（键和元素对）写入此Properties表中，以适合使用load(Reader)方法的格式写入输出字符流</td>
+</tr>
+</tbody>
+</table>
 
             </div>
             
