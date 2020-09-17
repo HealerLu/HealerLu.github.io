@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HealerLu.github.io</id>
     <title>Healer</title>
-    <updated>2020-09-16T07:42:42.353Z</updated>
+    <updated>2020-09-17T07:30:26.553Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HealerLu.github.io"/>
     <link rel="self" href="https://HealerLu.github.io/atom.xml"/>
@@ -10,6 +10,222 @@
     <logo>https://HealerLu.github.io/images/avatar.png</logo>
     <icon>https://HealerLu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Healer</rights>
+    <entry>
+        <title type="html"><![CDATA[多线程]]></title>
+        <id>https://HealerLu.github.io/post/yz0_jex0Z/</id>
+        <link href="https://HealerLu.github.io/post/yz0_jex0Z/">
+        </link>
+        <updated>2020-09-17T07:29:06.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="进程">进程</h3>
+<p>进程是正在运行的程序</p>
+<ul>
+<li>是系统进行资源分配和调用的独立单位</li>
+<li>每一个进程都有它自己的内存空间和系统资源</li>
+</ul>
+<h3 id="线程">线程</h3>
+<p>线程是进程中的单个顺序控制流，是一条执行路径</p>
+<ul>
+<li>单线程：一个进程如果只有一条执行路径，则称为单线程程序</li>
+<li>多线程：一个进程如果有多条执行路径，则称为多线程程序</li>
+</ul>
+<h3 id="多线程的实现方式">多线程的实现方式</h3>
+<h4 id="方式一继承thread类">方式一：继承Thread类</h4>
+<ul>
+<li>定义一个类(MyThread) 继承 Thread类</li>
+<li>在类(MyThread) 中重写run()方法</li>
+<li>创建(MyThread) 类的对象</li>
+<li>启动线程</li>
+</ul>
+<h4 id="方式二实现runnable接口">方式二：实现Runnable接口</h4>
+<ul>
+<li>定义一个类(MyRunnable)实现Runable接口</li>
+<li>在(MyRunnable)类中重写run()方法</li>
+<li>创建(MyRunnable)类的对象</li>
+<li>创建Thread类的对象，把(MyRunnable)对象作为构造方法的参数</li>
+<li>启动线程</li>
+</ul>
+<h6 id="为什么要重写run方法">为什么要重写run()方法</h6>
+<ul>
+<li>run()方法是用来封装被线程执行的代码</li>
+</ul>
+<h6 id="run方法和strat方法的区别">run()方法和strat()方法的区别</h6>
+<ul>
+<li>run()：封装线程执行的代码，直接调用。相当于普通方法的调用</li>
+<li>start()：启动线程，然后由JVM调用此线程的run方法</li>
+</ul>
+<h6 id="相比继承thread类实现runnable接口的好处">相比继承Thread类，实现Runnable接口的好处</h6>
+<ul>
+<li>避免了Java单继承的局限性</li>
+<li>适合多个相同程序的代码去处理同一个资源的情况，把线程和线程的代码、数据有效分离，较好的体现了面向对象的设计思想</li>
+</ul>
+<h4 id="设置和获取线程名称">设置和获取线程名称</h4>
+<h5 id="thread类中设置和获取线程名称的方法">Thread类中设置和获取线程名称的方法</h5>
+<ul>
+<li>void setName(String name)：将此线程的名称更改为等于参数name</li>
+<li>String getName()：返回此线程的名称</li>
+<li>通过构造方法也可以设置线程名称</li>
+</ul>
+<h5 id="获取main方法所在的线程名称">获取main()方法所在的线程名称</h5>
+<ul>
+<li>public static Thread currentThread()：返回对当前正在执行的线程对象的引用</li>
+</ul>
+<h4 id="线程调度">线程调度</h4>
+<h5 id="调度模型">调度模型</h5>
+<ul>
+<li>分时调度模型：所有县城轮流使用CPU的使用权，平均分配每个线程占用CPU的时间片</li>
+<li>抢占式调度模型：优先让优先级高的线程使用CPU，如果线程的优先级相同，那么会随机选择一个；优先级较高的线程获取的CPU时间片相对多一些</li>
+</ul>
+<h5 id="thread类中设置和获取线程优先级的方法">Thread类中设置和获取线程优先级的方法</h5>
+<ul>
+<li>public final int getPriority()：返回此线程的优先级</li>
+<li>public final void setPriority(int newPriority)：更改此线程的优先级
+<ul>
+<li>线程默认优先级是5</li>
+<li>线程优先级的范围是1-10</li>
+<li>线程优先级高仅仅表示线程获取的CPU时间片的几率高，但是要在次数比较多，或者多次运行的时候才能看到想要的效果</li>
+</ul>
+</li>
+</ul>
+<h4 id="线程控制">线程控制</h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static void sleep(long millis)</td>
+<td>使当前正在执行的线程停留（暂停执行）指定的毫秒数</td>
+</tr>
+<tr>
+<td>void join()</td>
+<td>等待这个线程死亡</td>
+</tr>
+<tr>
+<td>void setDaemon(boolean on)</td>
+<td>将此线程标记为守护线程，当运行的线程都是守护线程时，Java虚拟机将退出</td>
+</tr>
+</tbody>
+</table>
+<h4 id="线程的生命周期">线程的生命周期</h4>
+<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200917094334867.png" alt="image-20200917094334867" loading="lazy"></figure>
+<h4 id="同步代码块">同步代码块</h4>
+<blockquote>
+<p>锁多条语句操作共享数据，可以使用同步代码块来实现</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<pre><code class="language-java">synchronized(任意对象){
+    // 多条语句操作共享数据的代码
+}
+</code></pre>
+<ul>
+<li>synchronized(任意对象)：就相当于给代码加锁了，任意对象就可以看成是一把锁</li>
+</ul>
+<h6 id="同步的好处和弊端">同步的好处和弊端</h6>
+<ul>
+<li>好处：解决了多线程的数据安全问题</li>
+<li>弊端：当线程很多时，因为每个县城都会去判断同步上的锁，这是很耗费资源的，无形中会降低程序的运行效率</li>
+</ul>
+<h4 id="同步方法">同步方法</h4>
+<blockquote>
+<p>同步方法就是把synchronized关键字加到方法上</p>
+</blockquote>
+<ul>
+<li>格式</li>
+</ul>
+<pre><code class="language-java">synchronized 返回值类型 方法名(方法参数){}
+</code></pre>
+<ul>
+<li>
+<p>同步方法的锁的对象是<code>this</code></p>
+</li>
+<li>
+<p>同步静态方法就是把synchronized关键字加到静态方法上</p>
+<ul>
+<li>格式</li>
+</ul>
+<pre><code class="language-java">修饰符 static synchronized 返回值类型 方法名(方法参数){}
+</code></pre>
+</li>
+<li>
+<p>同步静态方法的锁的对象是<code>类名.class</code></p>
+</li>
+</ul>
+<h4 id="线程安全的类">线程安全的类</h4>
+<h5 id="stringbuffer">StringBuffer</h5>
+<ul>
+<li>线程安全，可变的字符序列</li>
+<li>从版本JDK5开始，被StringBuilder替代，通常应该使用StringBuilder类，因为它支持所有相同的操作。但他更快，因为他不执行同步</li>
+</ul>
+<h5 id="vector">Vector</h5>
+<ul>
+<li>从Java2平台v1.2开始，该类改进了List接口，使其成为Java Collections Framework的成员。与新的集合实现不同。Vector被同步。如果不需要线程安全的实现，建议使用ArrayList代替Vecyor。</li>
+</ul>
+<h5 id="hashtable">Hashtable</h5>
+<ul>
+<li>该类实现了一个哈希表，它将键映射到值，任何非null对象都可以用作键或者值</li>
+<li>从Java2平台v1.2开始，该类进行了改进，实现了Map接口。使其成为Java Collections Frameword的成员。与新的集合实现不同，Hashtable被同步。如果不需要线程安全的实现，建议使用HashMap代替Hashtable。</li>
+</ul>
+<h4 id="lock锁">Lock锁</h4>
+<blockquote>
+<p>Lock实现提供比synchronized方法和语句可以获得更广泛的锁定操作</p>
+</blockquote>
+<h5 id="lock中提供了获得锁和释放锁的方法">Lock中提供了获得锁和释放锁的方法</h5>
+<ul>
+<li>void lock()：获得锁</li>
+<li>void unlock()：释放锁</li>
+</ul>
+<blockquote>
+<p>Lock是接口不能直接实例化，这里采用它的实现类ReentrantLock来实例化</p>
+</blockquote>
+<h5 id="reentrantlock的构造方法">ReentrantLock的构造方法</h5>
+<ul>
+<li>ReentrantLock()：创建一个ReentrantLock的实例</li>
+</ul>
+<h4 id="生产者消费者">生产者消费者</h4>
+<h5 id="生产者消费者模式概述">生产者消费者模式概述</h5>
+<p>生产者消费者模式是一个十分经典的多线程协作的模式。所谓生产者消费者问题，实际上主要包含了两类线程：</p>
+<ul>
+<li>一类是生产者线程用于生产数据</li>
+<li>一类是消费者线程用于消费数据</li>
+</ul>
+<p>为了解耦生产者和消费者的关系，通常会采用共享的数据区域</p>
+<ul>
+<li>生产者生产数据之后直接放置在共享数据区中，并不需要关心消费着的行为</li>
+<li>消费者只需要从共享数据区中去获取数据，并不需要关心生产者的行为</li>
+</ul>
+<blockquote>
+<p>为了体现生产和消费过程中的等待和唤醒，Java再Object类中提供了几个方法</p>
+</blockquote>
+<h5 id="object类的等待和唤醒方法">Object类的等待和唤醒方法</h5>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void wait()</td>
+<td>导致当前线程等待，知道另一个线程调用该对象的notify()方法或notifyAll()方法</td>
+</tr>
+<tr>
+<td>void notify()</td>
+<td>唤醒正在等待对象监视器的单个线程</td>
+</tr>
+<tr>
+<td>void notifyAll()</td>
+<td>唤醒正在等待对象监视器的所有线程</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IO]]></title>
         <id>https://HealerLu.github.io/post/snHuB_DAz/</id>
@@ -2787,62 +3003,6 @@ System.out.println(list);
 </blockquote>
 </li>
 </ul>
-</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac终端如何使用代理]]></title>
-        <id>https://HealerLu.github.io/post/mac-zhong-duan-ru-he-shi-yong-dai-li/</id>
-        <link href="https://HealerLu.github.io/post/mac-zhong-duan-ru-he-shi-yong-dai-li/">
-        </link>
-        <updated>2020-08-17T02:05:46.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="在mac上安装使用shadowsocksx-ng-r8">在Mac上安装使用ShadowsocksX-NG-R8</h3>
-<ol>
-<li>
-<p><a href="https://HealerLu.github.io/post-images/ShadowsocksX-NG-R8.dmg">点击下载ShadowsocksX-NG-R8.dmg</a></p>
-</li>
-<li>
-<p>点击应用图标 ---&gt; HTTP代理设置 --&gt; 即可查看到监听的IP和端口号（一般为127.0.0.1:1087）</p>
-</li>
-</ol>
-<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/1597629976115.png" alt="HTTP代理设置" loading="lazy"></figure>
-<h3 id="使用iterm2终端设置代理">使用iterm2终端设置代理</h3>
-<ol>
-<li>
-<p>打开终端输入<code>vim ~/.zshrc</code>进入vim</p>
-</li>
-<li>
-<p>输入 `i进入编辑模式</p>
-</li>
-<li>
-<p>输入以下命令设置终端代理</p>
-</li>
-</ol>
-<p><code>alias goproxy='export http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087'</code><br>
-<code>alias disproxy='unset http_proxy https_proxy'</code></p>
-<p><em>注：alias为设置别名</em></p>
-<ol start="4">
-<li>
-<p>按下<code>esc</code>退出编辑模式，再按下<code>:wq</code>退出vim并保存</p>
-</li>
-<li>
-<p>使用<code>source ~/.zshrc</code>命令更新刚才编辑的内容</p>
-</li>
-<li>
-<p>直接在命令行运行<code>goproxy</code>即可启动终端代理</p>
-</li>
-<li>
-<p>运行<code>crul cip.cc</code>，输出的内容为代理服务器的IP时，即为设置成功，如下所示</p>
-<p>`IP	: 128.22.126.241<br>
-地址	: 日本  大阪府  大阪<br>
-运营商	: k-opti.com</p>
-<p>数据二	: 日本 | 大阪K Opti通讯</p>
-<p>数据三	:</p>
-<p>URL	: http://www.cip.cc/128.22.126.241`</p>
-</li>
-<li>
-<p>如果想关闭代理，运行<code>disproxy</code>即可</p>
 </li>
 </ol>
 ]]></content>
