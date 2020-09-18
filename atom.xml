@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HealerLu.github.io</id>
     <title>Healer</title>
-    <updated>2020-09-18T06:00:04.056Z</updated>
+    <updated>2020-09-18T09:15:32.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HealerLu.github.io"/>
     <link rel="self" href="https://HealerLu.github.io/atom.xml"/>
@@ -10,6 +10,123 @@
     <logo>https://HealerLu.github.io/images/avatar.png</logo>
     <icon>https://HealerLu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Healer</rights>
+    <entry>
+        <title type="html"><![CDATA[Lambda表达式&&接口组成&&方法引用]]></title>
+        <id>https://HealerLu.github.io/post/cgCdB15lv/</id>
+        <link href="https://HealerLu.github.io/post/cgCdB15lv/">
+        </link>
+        <updated>2020-09-18T09:14:53.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="lambda表达式的格式">Lambda表达式的格式</h3>
+<ul>
+<li>(形式参数) -&gt; {代码块}
+<ul>
+<li>形式参数：如果有多个参数，参数之间用逗号隔开，如果没有参数，则留空</li>
+<li>-&gt;：固定写法，代表指向动作</li>
+<li>代码块：是我们具体要做的事情，也就是方法体内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="lambda表达式的使用前提">Lambda表达式的使用前提</h3>
+<ul>
+<li>有一个接口</li>
+<li>接口中有且仅有一个抽象方法</li>
+</ul>
+<h3 id="lambda表达式和匿名内部类的区别">Lambda表达式和匿名内部类的区别</h3>
+<h4 id="所需类型不同">所需类型不同</h4>
+<ul>
+<li>匿名内部类：可以是接口，也可以是抽象类。还可以是具体类</li>
+<li>Lambda表达式：只能是接口</li>
+</ul>
+<h4 id="使用限制不同">使用限制不同</h4>
+<ul>
+<li>如果接口中有且仅有一个抽象方法，可以使用Lambda表达式，也可以使用匿名内部类</li>
+<li>如果接口中有多于一个抽象方法，则只能使用匿名内部类，而不能使用Lambda表达式</li>
+</ul>
+<h4 id="实现原理不同">实现原理不同</h4>
+<ul>
+<li>匿名内部类：编译之后，产生一个单独的.class字节码文件</li>
+<li>Lambda表达式：编译之后，没有一个单独的.class字节码文件。对应的字节码会在运行的时候动态生成</li>
+</ul>
+<h3 id="接口组成更新">接口组成更新</h3>
+<h4 id="接口组成更新概述">接口组成更新概述</h4>
+<h5 id="接口的组成">接口的组成</h5>
+<ul>
+<li>常量（默认修饰符 <code>public static final</code>）</li>
+<li>抽象方法(默认修饰符<code>public abstract</code>)</li>
+<li>默认方法(Java8)</li>
+<li>静态方法(java8)</li>
+<li>私有方法(Java9)</li>
+</ul>
+<h5 id="接口的默认方法">接口的默认方法</h5>
+<h6 id="定义格式">定义格式</h6>
+<p><code>public default 返回值 方法名(参数列表){}</code></p>
+<h6 id="注意事项">注意事项</h6>
+<ul>
+<li>默认方法不是抽象方法，所以不强制被重写。但是可以被重写。重写的时候去掉default关键字</li>
+<li>public可以省略</li>
+</ul>
+<h5 id="接口的静态方法">接口的静态方法</h5>
+<h6 id="定义格式-2">定义格式</h6>
+<p><code>public static 返回值类型 方法名(参数列表){}</code></p>
+<h6 id="注意事项-2">注意事项</h6>
+<ul>
+<li>静态方法只能通过接口名调用，不能通过实现类名或者对象名调用</li>
+<li>public可以省略</li>
+</ul>
+<h5 id="接口的私有方法">接口的私有方法</h5>
+<h6 id="定义格式-3">定义格式</h6>
+<ul>
+<li>格式一：<code>private 返回值类型 方法名(参数列表){}</code></li>
+<li>格式二：<code>private static 返回值类型 方法名(参数列表){}</code></li>
+</ul>
+<h6 id="注意事项-3">注意事项</h6>
+<ul>
+<li>默认方法可以调用私有的静态方法和非静态方法</li>
+<li>静态方法只能调用私有的静态方法</li>
+</ul>
+<h3 id="方法引用">方法引用</h3>
+<h4 id="方法引用符">方法引用符</h4>
+<ul>
+<li><code>::</code>该符号为引用运算符，而它所在的表达式别成为方法引用</li>
+</ul>
+<h4 id="lambda表达式支持的方法引用">Lambda表达式支持的方法引用</h4>
+<h5 id="常见的引用方法">常见的引用方法</h5>
+<ul>
+<li>引用类方法</li>
+<li>引用对象的实例方法</li>
+<li>引用类的实例方法</li>
+<li>引用构造器</li>
+</ul>
+<h6 id="引用类方法">引用类方法</h6>
+<blockquote>
+<p>引用类方法，其实就是引用类的静态方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::静态方法</code></li>
+</ul>
+<h6 id="引用对象的实例方法">引用对象的实例方法</h6>
+<blockquote>
+<p>引用对象的实例方法，其实就是引用类中的成员方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>对象::成员方法</code></li>
+</ul>
+<h6 id="引用类的实例方法">引用类的实例方法</h6>
+<blockquote>
+<p>引用类的实例方法，其实就是引用类中的成员方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::成员方法</code></li>
+</ul>
+<h6 id="引用构造器">引用构造器</h6>
+<blockquote>
+<p>引用构造器，其实就是引用构造方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::new</code></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[网络编程]]></title>
         <id>https://HealerLu.github.io/post/fJWrPTvTz/</id>
@@ -2628,375 +2745,6 @@ System.out.println(list);
 <blockquote>
 <p>第一次输出20，第二次输出200</p>
 </blockquote>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[算术运算符和分支语句]]></title>
-        <id>https://HealerLu.github.io/post/suan-zhu-yun-suan-fu-he-fen-zhi-yu-ju/</id>
-        <link href="https://HealerLu.github.io/post/suan-zhu-yun-suan-fu-he-fen-zhi-yu-ju/">
-        </link>
-        <updated>2020-08-20T07:32:51.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="算术运算符">算术运算符</h3>
-<h4 id="运算符和表达式">运算符和表达式</h4>
-<ol>
-<li>
-<p>运算符</p>
-<blockquote>
-<p>对常量或者变量进行操作的符号</p>
-</blockquote>
-</li>
-<li>
-<p>表达式</p>
-<blockquote>
-<p>用运算符把常量或者变量连接起来符合Java语法的式子。不同运算符链接的表达式体现的是不同类型的表达式。</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="算术运算符-2">算术运算符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">加</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:center">减</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">乘</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">除</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">取余</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>整数相除只能得到整数，要想得到小数，必须有浮点数的参与</p>
-</blockquote>
-<h4 id="字符的操作">字符的“+”操作</h4>
-<blockquote>
-<p>是拿字符在计算机底层对应的数值来进行计算的</p>
-<p>'A' ------&gt; 65         A-Z是连续的</p>
-<p>'a' ------&gt; 97          a-z是连续的</p>
-<p>'0' ------&gt; 48          0-9是连续的</p>
-<p>算是表达式中包含多个基本数据类型的值的时候，整个算是表达式的类型会自动进行提升</p>
-</blockquote>
-<p><strong>提升规则</strong></p>
-<ul>
-<li>
-<p>byte、short、char类型将被提升到int类型</p>
-</li>
-<li>
-<p>整个表达式的类型自动提升到表达式中最高等级操作数同样的类型</p>
-<blockquote>
-<p>等级顺序：btye,short,char ----&gt; int ----&gt; long ----&gt; float ----&gt; double</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="字符串的操作">字符串的“+”操作</h4>
-<ul>
-<li>当 &quot;+&quot; 操作出现字符串时，&quot;+&quot;是字符串的连接，而不是算术运算。</li>
-<li>当 &quot;+&quot;  操作中出现了字符串，就是连接运算符，否则就是算术运算。当连续进行 &quot;+&quot;  操作时，则为从左到右依次执行。</li>
-</ul>
-<h4 id="赋值运算符">赋值运算符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">=</td>
-<td style="text-align:center">赋值</td>
-<td style="text-align:center">a = 10， 将10赋值给变量a</td>
-</tr>
-<tr>
-<td style="text-align:center">+=</td>
-<td style="text-align:center">加后赋值</td>
-<td style="text-align:center">a += b，将 a + b 的值给a</td>
-</tr>
-<tr>
-<td style="text-align:center">-=</td>
-<td style="text-align:center">减后赋值</td>
-<td style="text-align:center">a -= b，将 a - b 的值给a</td>
-</tr>
-<tr>
-<td style="text-align:center">*=</td>
-<td style="text-align:center">乘后赋值</td>
-<td style="text-align:center">a *= b，将 a * b 的值给a</td>
-</tr>
-<tr>
-<td style="text-align:center">/=</td>
-<td style="text-align:center">除后赋值</td>
-<td style="text-align:center">a /= b，将 a / b 的商给a</td>
-</tr>
-<tr>
-<td style="text-align:center">%=</td>
-<td style="text-align:center">取余后赋值</td>
-<td style="text-align:center">a %= b，将 a / b 的余数给a</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>扩展的赋值运算符隐含了强制类型转换</p>
-</blockquote>
-<h4 id="自增自减运算符">自增自减运算符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">++</td>
-<td style="text-align:center">自增</td>
-<td style="text-align:center">变量的值加1</td>
-</tr>
-<tr>
-<td style="text-align:center">--</td>
-<td style="text-align:center">自减</td>
-<td style="text-align:center">变量的值减1</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>++ 和 -- 既可以放在变量的后面，也可以放在变量的前面</li>
-<li>单独使用的时候， ++ 和 -- 无论是放在变量的前面或者是后边，结果都是一样的</li>
-<li>参与操作的时候，如果放在变量的后面，则会先拿变量参与操作，后拿变量做 ++ 或者 --</li>
-<li>参与操作的时候，如果放在变量的前面，则会先拿变量做 ++ 或者 --，后拿变量参与操作</li>
-</ul>
-<h4 id="关系运算符">关系运算符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">==</td>
-<td style="text-align:center">a == b，判断a和b的值是否相等，成立为true，不成立为false</td>
-</tr>
-<tr>
-<td style="text-align:center">!=</td>
-<td style="text-align:center">a != b，判断a和b的值是否不相等，成立为true，不成立为false</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">a &gt; b，判断a是否大于b，成立为true，不成立为false</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt; =</td>
-<td style="text-align:center">a &gt;= b，判断a是否大于等于b，成立为true，不成立为false</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">a &lt; b，判断a是否小于b，成立为true，不成立为false</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td style="text-align:center">a &lt;= b，判断a是否小于等于b，成立为true，不成立为false</td>
-</tr>
-</tbody>
-</table>
-<h4 id="逻辑运算符">逻辑运算符</h4>
-<ul>
-<li>描述
-<ul>
-<li>逻辑运算符是用来连接关系表达式的运算符</li>
-<li>逻辑运算符也可以直接连接布尔类型的常量或者变量</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">逻辑与</td>
-<td style="text-align:center">a &amp; b，a和b都是true，结果为true，否则为false</td>
-</tr>
-<tr>
-<td style="text-align:center">|</td>
-<td style="text-align:center">逻辑或</td>
-<td style="text-align:center">a | b，a和b都是false，结果为false，否则为true</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">逻辑异或</td>
-<td style="text-align:center">a ^ b，a和b结果不同为true，相同为false</td>
-</tr>
-<tr>
-<td style="text-align:center">!</td>
-<td style="text-align:center">逻辑非</td>
-<td style="text-align:center">!a，和a的结果相反</td>
-</tr>
-</tbody>
-</table>
-<h4 id="短路逻辑运算符">短路逻辑运算符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;&amp;</td>
-<td style="text-align:center">短路与</td>
-<td style="text-align:center">作用和 &amp; 相同，但是有短路效果</td>
-</tr>
-<tr>
-<td style="text-align:center">||</td>
-<td style="text-align:center">短路或</td>
-<td style="text-align:center">作用和 | 相同，但是有短路效果</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>逻辑与 &amp;，无论左边真假，右边都要执行</li>
-<li>短路与&amp;&amp;，如果左边为真，右边执行；如果左边为假，右边不执行</li>
-<li>逻辑或 |，无论左边真假，右边都要执行</li>
-<li>短路或||，如果左边为假，右边执行；如果左边为真，右边不执行</li>
-</ul>
-<h4 id="三元运算符">三元运算符</h4>
-<ul>
-<li>
-<p>格式：关系表达式 ? 表达式1 : 表达式2；</p>
-<blockquote>
-<p>a &gt; b ? a : b</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="分支语句">分支语句</h3>
-<h4 id="流程控制语句">流程控制语句</h4>
-<ul>
-<li>分类
-<ul>
-<li>顺序结构</li>
-<li>分支结构（if，switch）</li>
-<li>循环结构（for，while， do...while）</li>
-</ul>
-</li>
-</ul>
-<h4 id="顺序结构">顺序结构</h4>
-<ul>
-<li>顺序结构是程序中最简单最基本的流程控制，没有特定的语法结构。按照代码的先后顺序依次执行，程序中大多数的代码都是这样执行的。</li>
-</ul>
-<h4 id="if语句">if语句</h4>
-<ul>
-<li>格式1</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://HealerLu.github.io/post-images/image-20200820113920642.png" alt="if语句格式" loading="lazy"></figure>
-<ul>
-<li>执行流程</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://HealerLu.github.io/post-images/image-20200820114211748.png" alt="执行流程" loading="lazy"></figure>
-<ul>
-<li>
-<p>格式2</p>
-<figure data-type="image" tabindex="3"><img src="https://HealerLu.github.io/post-images/image-20200820114332238.png" alt="if语句格式2" loading="lazy"></figure>
-</li>
-<li>
-<p>执行流程</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="4"><img src="https://HealerLu.github.io/post-images/image-20200820130128452.png" alt="执行流程" loading="lazy"></figure>
-<ul>
-<li>
-<p>格式3</p>
-<figure data-type="image" tabindex="5"><img src="https://HealerLu.github.io/post-images/image-20200820130510602.png" alt="格式三" loading="lazy"></figure>
-</li>
-<li>
-<p>执行流程</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="6"><img src="https://HealerLu.github.io/post-images/image-20200820130833146.png" alt="执行流程" loading="lazy"></figure>
-<h4 id="switch语句">switch语句</h4>
-<ul>
-<li>
-<p>格式</p>
-<figure data-type="image" tabindex="7"><img src="https://HealerLu.github.io/post-images/image-20200820131531961.png" alt="switch" loading="lazy"></figure>
-</li>
-<li>
-<p>流程</p>
-<figure data-type="image" tabindex="8"><img src="https://HealerLu.github.io/post-images/image-20200820131619765.png" alt="流程" loading="lazy"></figure>
-<blockquote>
-<p>在switch与剧中，如果case控制的语句体后面不写break，将出现穿透现象；在不判断下一个case值得情况下，向下运行知道遇到break，或者整体switch语句结束。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="循环语句">循环语句</h3>
-<ul>
-<li>循环结构的组成
-<ul>
-<li>初始化语句： 用于表示循环开启时的起始状态，简单说就是循环开始的时候什么样</li>
-<li>条件判断语句：用于表示循环反复执行的条件，简单说就是判断循环是否能一直执行下去</li>
-<li>循环体语句： 用于表示循环反复执行的内容，简单说就是循环反复执行的事情</li>
-<li>条件控制语句：用于表示循环执行中每次变化的内容，简单说就是控制循环是否能执行下去</li>
-</ul>
-</li>
-<li>循环结构对应的语法
-<ul>
-<li>初始化语句：这里可以是一条或者多条语句，这些语句可以完成一些初始化操作</li>
-<li>循环体语句：这里条件判断语句：这里使用一个结果值为boolean类型的表达式，这个表达式能决定是否执行循环体。例如：a&lt;3 可以是任意语句，这些语句将反复执行</li>
-<li>条件控制语句：这里通常是使用一条语句来改变变量的值，从而达到控制循环是否继续向下执行的效果。常见i++,i--这样的操作</li>
-</ul>
-</li>
-</ul>
-<h4 id="for循环语句">for循环语句</h4>
-<figure data-type="image" tabindex="9"><img src="https://HealerLu.github.io/post-images/image-20200820134405907.png" alt="for循环" loading="lazy"></figure>
-<h4 id="while循环语句">while循环语句</h4>
-<figure data-type="image" tabindex="10"><img src="https://HealerLu.github.io/post-images/image-20200820143027037.png" alt="while循环语句" loading="lazy"></figure>
-<h4 id="dowhile循环语句">do...while循环语句</h4>
-<figure data-type="image" tabindex="11"><img src="https://HealerLu.github.io/post-images/image-20200820143526546.png" alt="do...while循环语句" loading="lazy"></figure>
-<h4 id="三种循环的区别">三种循环的区别</h4>
-<ul>
-<li>for循环和while循环先判断条件是否成立，然后决定是否执行循环体（先判断后执行）</li>
-<li>do...while循环先执行一次循环体，然后判断条件是否成立，是否继续执行循环体（先执行后判断）</li>
-</ul>
-<h4 id="for和while的区别">for和while的区别</h4>
-<ul>
-<li>条件控制语句所控制的自增变量，因为归属for循环的语法结构中，在for循环结束后，就不能再次被访问到了</li>
-<li>条件控制语句所控制的自增变量，对于while循环来说不归属其语法结构中，在while循环结束后，该变量还可以继续使用</li>
-</ul>
-<h4 id="条件控制语句">条件控制语句</h4>
-<ul>
-<li>概述
-<ul>
-<li>continue	用在循环中，基于条件控制，跳过某次循环体内容的执行，继续下一次的执行</li>
-<li>break	用在循环中，基于条件控制，终止循环体内容的执行，也就是说结束当前的整个循环</li>
-</ul>
 </li>
 </ul>
 ]]></content>

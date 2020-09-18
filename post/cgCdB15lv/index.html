@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Lambda表达式&amp;&amp;接口组成&amp;&amp;方法引用 | Healer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://HealerLu.github.io/favicon.ico?v=1600420514311">
+<link rel="stylesheet" href="https://HealerLu.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Lambda表达式的格式
+
+(形式参数) -&gt; {代码块}
+
+形式参数：如果有多个参数，参数之间用逗号隔开，如果没有参数，则留空
+-&gt;：固定写法，代表指向动作
+代码块：是我们具体要做的事情，也就是方法体内容
+
+
+
+Lambda表..." />
+    <meta name="keywords" content="Java" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://HealerLu.github.io">
+        <img src="https://HealerLu.github.io/images/avatar.png?v=1600420514311" class="site-logo">
+        <h1 class="site-title">Healer</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <strong> 岁月不堪数，故人不如初</strong>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/HealerLu" target="_blank">Healer Lu</a> | <a class="rss" href="https://HealerLu.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Lambda表达式&amp;&amp;接口组成&amp;&amp;方法引用</h2>
+            <div class="post-date">2020-09-18</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="lambda表达式的格式">Lambda表达式的格式</h3>
+<ul>
+<li>(形式参数) -&gt; {代码块}
+<ul>
+<li>形式参数：如果有多个参数，参数之间用逗号隔开，如果没有参数，则留空</li>
+<li>-&gt;：固定写法，代表指向动作</li>
+<li>代码块：是我们具体要做的事情，也就是方法体内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="lambda表达式的使用前提">Lambda表达式的使用前提</h3>
+<ul>
+<li>有一个接口</li>
+<li>接口中有且仅有一个抽象方法</li>
+</ul>
+<h3 id="lambda表达式和匿名内部类的区别">Lambda表达式和匿名内部类的区别</h3>
+<h4 id="所需类型不同">所需类型不同</h4>
+<ul>
+<li>匿名内部类：可以是接口，也可以是抽象类。还可以是具体类</li>
+<li>Lambda表达式：只能是接口</li>
+</ul>
+<h4 id="使用限制不同">使用限制不同</h4>
+<ul>
+<li>如果接口中有且仅有一个抽象方法，可以使用Lambda表达式，也可以使用匿名内部类</li>
+<li>如果接口中有多于一个抽象方法，则只能使用匿名内部类，而不能使用Lambda表达式</li>
+</ul>
+<h4 id="实现原理不同">实现原理不同</h4>
+<ul>
+<li>匿名内部类：编译之后，产生一个单独的.class字节码文件</li>
+<li>Lambda表达式：编译之后，没有一个单独的.class字节码文件。对应的字节码会在运行的时候动态生成</li>
+</ul>
+<h3 id="接口组成更新">接口组成更新</h3>
+<h4 id="接口组成更新概述">接口组成更新概述</h4>
+<h5 id="接口的组成">接口的组成</h5>
+<ul>
+<li>常量（默认修饰符 <code>public static final</code>）</li>
+<li>抽象方法(默认修饰符<code>public abstract</code>)</li>
+<li>默认方法(Java8)</li>
+<li>静态方法(java8)</li>
+<li>私有方法(Java9)</li>
+</ul>
+<h5 id="接口的默认方法">接口的默认方法</h5>
+<h6 id="定义格式">定义格式</h6>
+<p><code>public default 返回值 方法名(参数列表){}</code></p>
+<h6 id="注意事项">注意事项</h6>
+<ul>
+<li>默认方法不是抽象方法，所以不强制被重写。但是可以被重写。重写的时候去掉default关键字</li>
+<li>public可以省略</li>
+</ul>
+<h5 id="接口的静态方法">接口的静态方法</h5>
+<h6 id="定义格式-2">定义格式</h6>
+<p><code>public static 返回值类型 方法名(参数列表){}</code></p>
+<h6 id="注意事项-2">注意事项</h6>
+<ul>
+<li>静态方法只能通过接口名调用，不能通过实现类名或者对象名调用</li>
+<li>public可以省略</li>
+</ul>
+<h5 id="接口的私有方法">接口的私有方法</h5>
+<h6 id="定义格式-3">定义格式</h6>
+<ul>
+<li>格式一：<code>private 返回值类型 方法名(参数列表){}</code></li>
+<li>格式二：<code>private static 返回值类型 方法名(参数列表){}</code></li>
+</ul>
+<h6 id="注意事项-3">注意事项</h6>
+<ul>
+<li>默认方法可以调用私有的静态方法和非静态方法</li>
+<li>静态方法只能调用私有的静态方法</li>
+</ul>
+<h3 id="方法引用">方法引用</h3>
+<h4 id="方法引用符">方法引用符</h4>
+<ul>
+<li><code>::</code>该符号为引用运算符，而它所在的表达式别成为方法引用</li>
+</ul>
+<h4 id="lambda表达式支持的方法引用">Lambda表达式支持的方法引用</h4>
+<h5 id="常见的引用方法">常见的引用方法</h5>
+<ul>
+<li>引用类方法</li>
+<li>引用对象的实例方法</li>
+<li>引用类的实例方法</li>
+<li>引用构造器</li>
+</ul>
+<h6 id="引用类方法">引用类方法</h6>
+<blockquote>
+<p>引用类方法，其实就是引用类的静态方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::静态方法</code></li>
+</ul>
+<h6 id="引用对象的实例方法">引用对象的实例方法</h6>
+<blockquote>
+<p>引用对象的实例方法，其实就是引用类中的成员方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>对象::成员方法</code></li>
+</ul>
+<h6 id="引用类的实例方法">引用类的实例方法</h6>
+<blockquote>
+<p>引用类的实例方法，其实就是引用类中的成员方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::成员方法</code></li>
+</ul>
+<h6 id="引用构造器">引用构造器</h6>
+<blockquote>
+<p>引用构造器，其实就是引用构造方法</p>
+</blockquote>
+<ul>
+<li>格式：<code>类名::new</code></li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://HealerLu.github.io/tag/Vk-b-Atmn/" class="tag">
+                    Java
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://HealerLu.github.io/post/fJWrPTvTz/">
+                  <h3 class="post-title">
+                    网络编程
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
